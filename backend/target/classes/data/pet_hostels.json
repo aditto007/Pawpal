@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Furryghor Mirpur",
+        "area": "Mirpur",
+        "address": "80 Zoo Road, Dhaka",
+        "city": "Dhaka",
+        "phone": "01749264189",
+        "latitude": 23.80295767057154,
+        "longitude": 90.3532576025577
+    },
+    {
+        "id": 2,
+        "name": "Furryghor Gulshan",
+        "area": "Gulshan",
+        "address": "205, 1 Bir Uttam Mir Shawkat Sarak, Dhaka 1208",
+        "city": "Dhaka",
+        "phone": "01936264189",
+        "latitude": 23.771250773039622,
+        "longitude": 90.41139881149687
+    },
+    {
+        "id": 3,
+        "name": "Pawtel",
+        "area": "Mirpur",
+        "address": "Rahman Mansion, 236/5/A, South Pirer Bag, Mirpur 60 feet road, Amtola Kamal Soroni, Dhaka 1216",
+        "city": "Dhaka",
+        "phone": "01733191556",
+        "latitude": 23.7858533433854,
+        "longitude": 90.366685043255
+    },
+    {
+        "id": 4,
+        "name": "Happily Ever After - Cat Boarding Facility",
+        "area": "Sheikhertek",
+        "address": "Housing (First Phase, House: 83-84, Apon Bhubhon, Road: Sheikhertek Rd-6, Dhaka 1205",
+        "city": "Dhaka",
+        "phone": "01408688002",
+        "latitude": 23.767347468783903,
+        "longitude": 90.35233715892896
+    }
+]
