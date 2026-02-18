@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pawpal — Pet Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    .pet-detail-header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #ffeef0 0%, #fff5f5 100%);
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+
+    .pet-detail-emoji {
+      font-size: 8rem;
+      margin-bottom: 20px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .pet-detail-name {
+      font-size: 3rem;
+      color: #d63384;
+      margin: 0 0 10px;
+      font-weight: 700;
+    }
+
+    .pet-detail-species {
+      font-size: 1.2rem;
+      color: #6c757d;
+      font-style: italic;
+      margin: 0;
+    }
+
+    .section {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: #d63384;
+      margin: 0 0 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #ffeef0;
+    }
+
+    .breed-card {
+      background: linear-gradient(135deg, #fff5f5 0%, #ffeef0 100%);
+      border: 2px solid rgba(255, 182, 193, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .breed-card:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
+    }
+
+    .breed-name {
+      font-size: 1.4rem;
+      color: #d63384;
+      margin: 0 0 10px;
+      font-weight: 600;
+    }
+
+    .breed-info {
+      margin: 8px 0;
+      color: #495057;
+      line-height: 1.6;
+    }
+
+    .diet-item {
+      background: #f8f9fa;
+      border-left: 4px solid #d63384;
+      padding: 15px 20px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+    }
+
+    .disease-card {
+      background: linear-gradient(135deg, #fff5f5 0%, #ffeef0 100%);
+      border: 2px solid rgba(255, 182, 193, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .disease-name {
+      font-size: 1.5rem;
+      color: #dc3545;
+      margin: 0 0 15px;
+      font-weight: 600;
+    }
+
+    .symptoms-list, .remedy-text {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .symptoms-list li {
+      margin: 5px 0;
+      color: #495057;
+    }
+
+    .remedy-text {
+      background: #e7f5e7;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #28a745;
+      color: #155724;
+      font-weight: 500;
+    }
+
+    .symptom-checker {
+      background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    .symptom-input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid rgba(255, 182, 193, 0.3);
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    .symptom-input:focus {
+      outline: none;
+      border-color: #d63384;
+      box-shadow: 0 0 0 3px rgba(214, 51, 132, 0.1);
+    }
+
+    .check-button {
+      background: linear-gradient(135deg, #d63384 0%, #c2185b 100%);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3);
+    }
+
+    .check-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(214, 51, 132, 0.4);
+    }
+
+    .result-box {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    .result-box.show {
+      display: block;
+    }
+
+    .result-box.match {
+      background: #fff3cd;
+      border: 2px solid #ffc107;
+      color: #856404;
+    }
+
+    .result-box.no-match {
+      background: #d1ecf1;
+      border: 2px solid #17a2b8;
+      color: #0c5460;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      transform: translateX(-5px);
+      box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+    }
+
+    .medicine-item {
+      background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+      border-left: 4px solid #ff9800;
+      padding: 15px 20px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      color: #e65100;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .medicine-item strong {
+      color: #d84315;
+    }
+  </style>
+</head>
+<body class="has-sidebar">
+  <!-- Navigation -->
+  <script type="module">
+    import { initHeader } from "./js/header.js";
+    import { initSidebar } from "./js/sidebar.js";
+    initHeader();
+    initSidebar();
+  </script>
+
+  <!-- Main Content -->
+  <main class="container">
+    <a href="pets.html" class="back-button">← Back to Pet Info Hub</a>
+
+    <div id="loading" class="loading-spinner">
+      <div class="spinner"></div>
+      <p>Loading pet information...</p>
+    </div>
+
+    <div id="error" class="error-message" style="display: none;">
+      <p>Failed to load pet information. Please try again later.</p>
+    </div>
+
+    <div id="pet-detail-content" style="display: none;">
+      <!-- Pet Header -->
+      <div class="pet-detail-header">
+        <div class="pet-detail-emoji" id="pet-emoji"></div>
+        <h1 class="pet-detail-name" id="pet-name"></h1>
+        <p class="pet-detail-species" id="pet-species"></p>
+      </div>
+
+      <!-- Pet Encyclopedia Section -->
+      <div class="section">
+        <h2 class="section-title">📚 Pet Encyclopedia</h2>
+        
+        <h3 style="color: #d63384; margin: 25px 0 15px;">Breeds & Care Requirements</h3>
+        <div id="breeds-container"></div>
+
+        <h3 style="color: #d63384; margin: 25px 0 15px;">Recommended Diets</h3>
+        <div id="diets-container"></div>
+      </div>
+
+      <!-- Disease & Remedies Section -->
+      <div class="section">
+        <h2 class="section-title">🏥 Disease & Remedies</h2>
+
+        <!-- Symptom Checker -->
+        <div class="symptom-checker">
+          <h3 style="color: #d63384; margin: 0 0 15px;">🔍 Symptom Checker</h3>
+          <p style="color: #6c757d; margin-bottom: 20px;">Enter <strong>multiple symptoms</strong> your pet is experiencing (separated by commas) for more accurate results:</p>
+          <input type="text" id="symptom-input" class="symptom-input" placeholder="e.g., vomiting, lethargy, loss of appetite, fever...">
+          <button class="check-button" onclick="checkSymptoms()">Check Symptoms</button>
+          <div id="symptom-result" class="result-box"></div>
+        </div>
+
+        <!-- Common Diseases -->
+        <h3 style="color: #d63384; margin: 30px 0 15px;">Common Diseases & Remedies</h3>
+        <div id="diseases-container"></div>
+      </div>
+
+      <!-- Medicine Recommendations Section -->
+      <div class="section">
+        <h2 class="section-title">💊 Medicine Recommendations (Vet-Approved)</h2>
+        <div id="medicine-container"></div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    import './js/pet_detail.js';
+  </script>
+  <script type="module">
+    import { updateNavigation } from "./js/nav.js";
+    updateNavigation();
+  </script>
+</body>
+</html>
+

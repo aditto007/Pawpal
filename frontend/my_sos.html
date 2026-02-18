@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pawpal — My SOS Reports</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="has-sidebar">
+  <!-- Cute Header -->
+  <script type="module">
+    import { initHeader } from "./js/header.js";
+    import { initSidebar } from "./js/sidebar.js";
+    initHeader();
+    initSidebar();
+  </script>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="page-header">
+      <h1>My SOS Reports</h1>
+      <p class="page-subtitle" id="mySosSubtitle">Tracking your submitted emergencies</p>
+    </div>
+
+    <section>
+      <div id="mySosList" class="cards-grid">
+        <!-- Personal reports will load here -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close" onclick="closeImageModal()">&times;</span>
+    <img class="modal-content" id="modalImage" alt="Full size image">
+  </div>
+
+  <script type="module">
+    import { updateNavigation } from "./js/nav.js";
+    updateNavigation();
+  </script>
+  <script type="module" src="./js/my_sos.js"></script>
+  <script src="./js/modal.js"></script>
+</body>
+</html>
+

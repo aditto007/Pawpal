@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pawpal — Pet Supplies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="has-sidebar">
+  <!-- Navigation -->
+  <script type="module">
+    import { initHeader } from "./js/header.js";
+    import { initSidebar } from "./js/sidebar.js";
+    initHeader();
+    initSidebar();
+  </script>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="page-header">
+      <h1>🛒 Pet Supplies</h1>
+      <p class="page-subtitle">Find the nearest pet shops for food, toys, and accessories</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters-container">
+      <div class="filter-group">
+        <label for="cityFilter">Filter by City:</label>
+        <select id="cityFilter" class="filter-select">
+          <option value="">All Cities</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="searchInput">Search:</label>
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="filter-input" 
+          placeholder="Search by shop name or address..."
+        />
+      </div>
+      <div class="filter-group">
+        <label>&nbsp;</label>
+        <button id="locationSortBtn" class="filter-input" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; white-space: nowrap;">
+          📍 Sort by Distance
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading" class="loading-spinner">
+      <div class="spinner"></div>
+      <p>Loading pet shops...</p>
+    </div>
+
+    <!-- Error State -->
+    <div id="error" class="error-message" style="display: none;">
+      <p>Failed to load pet shops. Please try again later.</p>
+    </div>
+
+    <!-- Organizations Grid -->
+    <div id="organizations-container" class="organizations-grid" style="display: none;"></div>
+  </main>
+
+  <script type="module">
+    import { getJSON } from "./js/api.js";
+    
+    let allShops = [];
+    let filteredShops = [];
+    let userLocation = null;
+    let useLocationSorting = false;
+
+    // Calculate distance using Haversine formula
+    function calculateDistance(lat1, lon1, lat2, lon2) {
+      const R = 6371; // Earth's radius in kilometers
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLon = (lon2 - lon1) * Math.PI / 180;
+      const a = 
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+
+    // Request user location
+    function requestUserLocation() {
+      if (!navigator.geolocation) {
+        console.log("Geolocation is not supported by this browser.");
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          userLocation = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          };
+          console.log("User location obtained:", userLocation);
+          if (useLocationSorting) {
+            renderShops();
+          }
+        },
+        (error) => {
+          console.log("Error getting user location:", error.message);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
+        }
+      );
+    }
+
+    async function loadPetShops() {
+      const loadingEl = document.getElementById('loading');
+      const errorEl = document.getElementById('error');
+      const containerEl = document.getElementById('organizations-container');
+
+      try {
+        loadingEl.style.display = 'block';
+        errorEl.style.display = 'none';
+        containerEl.style.display = 'none';
+
+        const data = await getJSON('/api/clinics?type=PET_SHOP');
+        allShops = Array.isArray(data) ? data : [];
+        filteredShops = [...allShops];
+        
+        // Populate city filter
+        const cities = [...new Set(allShops.map(shop => shop.city))].sort();
+        const cityFilter = document.getElementById('cityFilter');
+        cities.forEach(city => {
+          const option = document.createElement('option');
+          option.value = city;
+          option.textContent = city;
+          cityFilter.appendChild(option);
+        });
+
+        // Try to get user location
+        if (navigator.geolocation && !userLocation) {
+          requestUserLocation();
+        }
+
+        renderShops();
+        loadingEl.style.display = 'none';
+        containerEl.style.display = 'grid';
+
+      } catch (error) {
+        console.error('Error loading pet shops:', error);
+        loadingEl.style.display = 'none';
+        errorEl.innerHTML = `
+          <p style="margin-bottom: 10px;">Failed to load pet shops.</p>
+          <p style="font-size: 0.9rem; color: var(--muted);">Error: ${error.message}</p>
+          <p style="font-size: 0.9rem; color: var(--muted); margin-top: 10px;">
+            Please make sure:<br>
+            1. The backend server is running on http://localhost:8080<br>
+            2. The backend has been restarted to load pet shops into the database
+          </p>
+        `;
+        errorEl.style.display = 'block';
+        containerEl.style.display = 'none';
+      }
+    }
+
+    function renderShops() {
+      const containerEl = document.getElementById('organizations-container');
+      
+      if (filteredShops.length === 0) {
+        containerEl.innerHTML = '<p class="no-results">No pet shops found matching your criteria.</p>';
+        return;
+      }
+
+      // Calculate distances and sort if location sorting is enabled
+      let shopsWithDistance = filteredShops.map(shop => {
+        let distance = null;
+        if (useLocationSorting && userLocation && shop.latitude && shop.longitude) {
+          distance = calculateDistance(
+            userLocation.latitude,
+            userLocation.longitude,
+            shop.latitude,
+            shop.longitude
+          );
+        }
+        return { ...shop, distance };
+      });
+
+      // Sort by distance if enabled
+      if (useLocationSorting && userLocation) {
+        shopsWithDistance.sort((a, b) => {
+          if (a.distance === null && b.distance === null) return 0;
+          if (a.distance === null) return 1;
+          if (b.distance === null) return -1;
+          return a.distance - b.distance;
+        });
+      }
+
+      // Find nearest shop (first one with distance after sorting)
+      const nearestShop = shopsWithDistance.length > 0 && shopsWithDistance[0].distance !== null 
+        ? shopsWithDistance[0] 
+        : null;
+
+      containerEl.innerHTML = shopsWithDistance.map((shop, index) => {
+        const hours = shop.openHours && shop.closeHours 
+          ? `${shop.openHours} - ${shop.closeHours}`
+          : 'Hours not specified';
+        
+        const mapLink = shop.latitude && shop.longitude
+          ? `<a href="https://www.google.com/maps?q=${shop.latitude},${shop.longitude}" target="_blank" class="map-link">📍 View on Map</a>`
+          : '';
+
+        const isNearest = useLocationSorting && nearestShop && index === 0 && shop.distance !== null;
+        const distanceHtml = shop.distance !== null && shop.distance !== undefined
+          ? `<p class="org-distance" style="color: ${isNearest ? '#4CAF50' : '#d63384'}; font-weight: 600;">
+              ${isNearest ? '⭐ ' : ''}📍 Distance: ${shop.distance < 1 
+                ? (shop.distance * 1000).toFixed(0) + ' m away' 
+                : shop.distance.toFixed(1) + ' km away'}${isNearest ? ' (Nearest)' : ''}
+            </p>`
+          : '';
+
+        return `
+          <div class="organization-card" style="${isNearest ? 'border: 3px solid #4CAF50; box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4); transform: scale(1.02);' : ''}">
+            <div class="org-header">
+              <h3 class="org-name">${shop.name}</h3>
+              <span class="org-type-badge" style="background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);">🛒 Pet Shop</span>
+            </div>
+            <div class="org-details">
+              ${distanceHtml}
+              <p class="org-address">📍 ${shop.address}</p>
+              <p class="org-city">🏙️ ${shop.city}</p>
+              <p class="org-phone">📞 ${shop.phone}</p>
+              <p class="org-hours">🕐 ${hours}</p>
+              ${mapLink}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Location sort button handler
+    document.getElementById('locationSortBtn')?.addEventListener('click', () => {
+      useLocationSorting = !useLocationSorting;
+      const btn = document.getElementById('locationSortBtn');
+      
+      if (useLocationSorting) {
+        if (!userLocation) {
+          requestUserLocation();
+          btn.textContent = '📍 Getting Location...';
+          btn.disabled = true;
+          setTimeout(() => {
+            if (userLocation) {
+              btn.textContent = '📍 Sorted by Distance';
+              btn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+              btn.disabled = false;
+            } else {
+              btn.textContent = '📍 Sort by Distance';
+              btn.style.background = 'linear-gradient(135deg, #ff9800 0%, #f57c00 100%)';
+              btn.disabled = false;
+              useLocationSorting = false;
+              alert('Unable to get your location. Please enable location access in your browser settings.');
+            }
+          }, 2000);
+        } else {
+          btn.textContent = '📍 Sorted by Distance';
+          btn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+        }
+      } else {
+        btn.textContent = '📍 Sort by Distance';
+        btn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+      }
+      
+      renderShops();
+    });
+
+    // Filter handlers
+    document.getElementById('cityFilter').addEventListener('change', (e) => {
+      const city = e.target.value.toLowerCase();
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      
+      filteredShops = allShops.filter(shop => {
+        const matchesCity = !city || shop.city.toLowerCase() === city;
+        const matchesSearch = !search || 
+          shop.name.toLowerCase().includes(search) ||
+          shop.address.toLowerCase().includes(search);
+        return matchesCity && matchesSearch;
+      });
+      
+      renderShops();
+    });
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const search = e.target.value.toLowerCase();
+      const city = document.getElementById('cityFilter').value.toLowerCase();
+      
+      filteredShops = allShops.filter(shop => {
+        const matchesCity = !city || shop.city.toLowerCase() === city;
+        const matchesSearch = !search || 
+          shop.name.toLowerCase().includes(search) ||
+          shop.address.toLowerCase().includes(search);
+        return matchesCity && matchesSearch;
+      });
+      
+      renderShops();
+    });
+
+    // Load shops on page load
+    loadPetShops();
+  </script>
+</body>
+</html>
+

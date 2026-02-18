@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Pawpal — Veterinary Clinics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body class="has-sidebar">
+  <!-- Cute Header -->
+  <script type="module">
+    import { initHeader } from "./js/header.js";
+    import { initSidebar } from "./js/sidebar.js";
+    initHeader();
+    initSidebar();
+  </script>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="page-header">
+      <h1>🏥 Veterinary Clinics</h1>
+      <p class="page-subtitle">Find professional veterinary care for your beloved pets</p>
+    </div>
+
+    <!-- Filters and Search -->
+    <!-- Filters -->
+    <div class="filters-container">
+      <div class="filter-group">
+        <label for="cityFilter">Filter by City:</label>
+        <select id="cityFilter" class="filter-select">
+          <option value="">All Cities</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="searchInput">Search:</label>
+        <input type="text" id="searchInput" class="filter-input" placeholder="Search by clinic name or address..." />
+      </div>
+      <div class="filter-group">
+        <label>&nbsp;</label>
+        <button id="locationSortBtn" class="filter-input"
+          style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; white-space: nowrap;">
+          📍 Sort by Distance
+        </button>
+      </div>
+    </div>
+
+    <!-- Clinics List -->
+    <section>
+      <div id="clinicsList" class="cards-grid">
+        <!-- Clinics will be loaded here -->
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./js/organizations.js"></script>
+  <script type="module">
+    import { loadOrganizationsByType } from "./js/organizations.js";
+    loadOrganizationsByType('CLINIC');
+  </script>
+</body>
+
+</html>

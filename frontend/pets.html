@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pawpal — Pet Info Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    .pet-card {
+      background: linear-gradient(135deg, #fff5f5 0%, #ffeef0 100%);
+      border: 2px solid rgba(255, 182, 193, 0.3);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(255, 182, 193, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .pet-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(255, 182, 193, 0.4);
+      border-color: rgba(255, 182, 193, 0.6);
+    }
+
+    .pet-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 182, 193, 0.1) 0%, rgba(255, 192, 203, 0.05) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .pet-card:hover::before {
+      opacity: 1;
+    }
+
+    .pet-image {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, #ffeef0 0%, #fff5f5 50%, #ffeef0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pet-image::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 182, 193, 0.1) 0%, transparent 70%);
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+      50% { transform: translate(-50%, -50%) rotate(180deg); }
+    }
+
+    .pet-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pet-content {
+      padding: 24px;
+      position: relative;
+      z-index: 1;
+      background: white;
+    }
+
+    .pet-name {
+      margin: 0 0 8px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #d63384;
+      text-align: center;
+    }
+
+    .pet-species {
+      margin: 0 0 20px;
+      color: #6c757d;
+      font-size: 1rem;
+      font-style: italic;
+      text-align: center;
+    }
+
+    .pet-care-basics {
+      margin: 0;
+      padding-left: 20px;
+      display: none;
+    }
+
+    .pet-care-basics li {
+      margin: 8px 0;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .click-hint {
+      text-align: center;
+      margin-top: 16px;
+      color: #d63384;
+      font-size: 0.9rem;
+      font-weight: 500;
+      opacity: 0.7;
+    }
+
+    .pets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .loading-spinner {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--muted);
+    }
+
+    .spinner {
+      border: 3px solid var(--border);
+      border-top: 3px solid var(--primary);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .error-message {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid var(--error);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      color: var(--error);
+      text-align: center;
+      margin: 24px 0;
+    }
+
+    @media (max-width: 768px) {
+      .pets-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body class="has-sidebar">
+  <!-- Navigation -->
+  <!-- Cute Header -->
+  <script type="module">
+    import { initHeader } from "./js/header.js";
+    import { initSidebar } from "./js/sidebar.js";
+    initHeader();
+    initSidebar();
+  </script>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="page-header">
+      <h1>Pet Info Hub</h1>
+      <p class="page-subtitle">Essential care information for your beloved pets</p>
+    </div>
+
+    <div id="loading" class="loading-spinner">
+      <div class="spinner"></div>
+      <p>Loading pet information...</p>
+    </div>
+
+    <div id="error" class="error-message" style="display: none;">
+      <p>Failed to load pet information. Please try again later.</p>
+    </div>
+
+    <div id="pets-container" class="pets-grid" style="display: none;"></div>
+  </main>
+
+  <script type="module">
+    import { getJSON } from "./js/api.js";
+    
+    async function loadPets() {
+      const loadingEl = document.getElementById('loading');
+      const errorEl = document.getElementById('error');
+      const containerEl = document.getElementById('pets-container');
+
+      try {
+        const pets = await getJSON('/data/pets.json');
+        
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'none';
+        containerEl.style.display = 'grid';
+
+        containerEl.innerHTML = pets.map(pet => {
+          const emoji = pet.emoji || '🐾';
+          // Check if image is a local path or full URL
+          const imageUrl = pet.image 
+            ? (pet.image.startsWith('http://') || pet.image.startsWith('https://') 
+                ? pet.image 
+                : `http://localhost:8080/${pet.image}`)
+            : null;
+          
+          const imageHtml = imageUrl
+            ? `<img src="${imageUrl}" alt="${pet.name}" onerror="this.parentElement.innerHTML='${emoji}'; this.parentElement.style.fontSize='8rem';">`
+            : emoji;
+          
+          return `
+          <div class="pet-card" onclick="window.location.href='pet_detail.html?id=${pet.id}'">
+            <div class="pet-image">
+              ${imageHtml}
+            </div>
+            <div class="pet-content">
+              <h2 class="pet-name">${pet.name}</h2>
+              <p class="pet-species">${pet.species}</p>
+              <p class="click-hint">Click to learn more →</p>
+            </div>
+          </div>
+        `;
+        }).join('');
+
+      } catch (error) {
+        console.error('Error loading pets:', error);
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'block';
+        containerEl.style.display = 'none';
+      }
+    }
+
+    // Load pets when page loads
+    loadPets();
+  </script>
+
+  <script type="module">
+    import { updateNavigation } from "./js/nav.js";
+    updateNavigation();
+  </script>
+</body>
+</html>
+

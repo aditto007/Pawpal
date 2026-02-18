@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Pawpal — Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body class="has-sidebar">
+  <!-- Cute Header -->
+  <script type="module">
+    import { initHeader } from "./js/header.js";
+    import { initSidebar } from "./js/sidebar.js";
+    initHeader();
+    initSidebar();
+  </script>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="page-header">
+      <h1>Sign Up</h1>
+      <p class="page-subtitle">Create your Pawpal account</p>
+    </div>
+
+    <!-- Signup Form -->
+    <section class="form-section" style="max-width: 500px; margin: 0 auto;">
+      <form id="signupForm" class="sos-form">
+        <div class="form-group">
+          <label for="name" class="form-label">Name <span class="required">*</span></label>
+          <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required
+            autocomplete="name" />
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="yourname@gmail.com" required
+            autocomplete="email" inputmode="email" />
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Password <span class="required">*</span></label>
+          <input type="password" id="password" name="password" class="form-input" placeholder="Choose a strong password"
+            required autocomplete="new-password" />
+        </div>
+
+        <div class="form-group">
+          <label for="phone" class="form-label">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone" class="form-input" placeholder="01XXXXXXXXX" autocomplete="tel"
+            inputmode="numeric" maxlength="11" pattern="01[0-9]{9}" />
+        </div>
+
+        <div class="form-group">
+          <label for="city" class="form-label">City (optional)</label>
+          <input type="text" id="city" name="city" class="form-input" placeholder="Your city"
+            autocomplete="address-level2" />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
+            Sign Up
+          </button>
+        </div>
+
+        <div style="text-align: center; margin-top: 16px;">
+          <p style="color: var(--muted);">
+            Already have an account? <a href="login.html" style="color: var(--primary);">Login</a>
+          </p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script type="module">
+    import { postJSON } from "./js/api.js";
+    import { setAuth } from "./js/auth.js";
+    import { showToast } from "./js/utils.js";
+
+    const form = document.getElementById("signupForm");
+    const submitBtn = document.getElementById("submitBtn");
+
+    const PHONE_REGEX = /^01\d{9}$/;
+    const GMAIL_REGEX = /^[a-zA-Z0-9](?:[a-zA-Z0-9._%+-]{0,62}[a-zA-Z0-9])?@gmail\.com$/i;
+
+    const phoneInput = document.getElementById("phone");
+    const emailInput = document.getElementById("email");
+
+    // Digits-only typing for phone
+    if (phoneInput) {
+      phoneInput.addEventListener("input", () => {
+        phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 11);
+      });
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Creating account...";
+
+      try {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const phone = document.getElementById("phone").value.replace(/\D/g, "");
+        const city = document.getElementById("city").value;
+
+        // Email validation (Gmail)
+        if (!GMAIL_REGEX.test(email)) {
+          showToast("Please use a valid Gmail address (example: yourname@gmail.com)", "error");
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Sign Up";
+          return;
+        }
+
+        // Phone validation (optional)
+        if (phone && !PHONE_REGEX.test(phone)) {
+          showToast("Phone must be exactly 11 digits, digits-only, and start with 01 (example: 01XXXXXXXXX)", "error");
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Sign Up";
+          return;
+        }
+
+        const result = await postJSON("/api/auth/signup", {
+          name,
+          email,
+          password,
+          phone: phone || null,
+          city: city || null,
+        });
+
+        // Store auth token and user info
+        setAuth(result.token, result.user);
+
+        showToast("Account created successfully!", "success");
+
+        // Redirect to home
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 500);
+      } catch (error) {
+        console.error("Signup failed:", error);
+        showToast(error.message || "Signup failed. Please try again.", "error");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Sign Up";
+      }
+    });
+  </script>
+</body>
+
+</html>

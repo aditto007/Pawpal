@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Pawpal — Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body class="has-sidebar page-home">
+  <!-- Cute Header -->
+  <script type="module">
+    import { initHeader } from "./js/header.js";
+    import { initSidebar } from "./js/sidebar.js";
+    initHeader();
+    initSidebar();
+  </script>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Guest Home -->
+    <section id="guestHome" style="display:none;">
+      <div class="home-hero">
+        <div class="home-hero-content">
+          <div class="home-badge">Pet care • Community • Emergency support</div>
+          <h1 class="home-title">PawPal</h1>
+          <p class="home-subtitle">
+            Find clinics, learn pet care, and get help when an emergency happens — all in one place.
+          </p>
+          <div class="home-cta">
+            <a href="clinics.html" class="btn btn-primary btn-large">Find Clinics</a>
+            <a href="pets.html" class="btn btn-secondary btn-large">Pet Info Hub</a>
+            <a href="login.html" class="btn btn-secondary btn-large">Login</a>
+            <a href="signup.html" class="btn btn-primary btn-large">Create account</a>
+          </div>
+          <div class="home-note">
+            SOS reporting and “My SOS” are available after login.
+          </div>
+        </div>
+        <div class="home-hero-visual" aria-hidden="true">
+          <div class="home-visual-card">
+            <div class="home-visual-icon">🐾</div>
+            <div class="home-visual-text">
+              <div class="home-visual-title">Trusted by pet lovers</div>
+              <div class="home-visual-subtitle">Quick access to help and guidance</div>
+            </div>
+          </div>
+          <div class="home-visual-mini">
+            <div class="home-mini">
+              <div class="mini-icon">🏥</div>
+              <div class="mini-text">Clinics</div>
+            </div>
+            <div class="home-mini">
+              <div class="mini-icon">📖</div>
+              <div class="mini-text">Guides</div>
+            </div>
+            <div class="home-mini">
+              <div class="mini-icon">🆘</div>
+              <div class="mini-text">SOS (login)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="home-section">
+        <h2 class="home-section-title">What you can do</h2>
+        <div class="home-features">
+          <div class="home-feature">
+            <div class="feature-icon">🏥</div>
+            <div class="feature-title">Clinics & vets</div>
+            <div class="feature-text">Browse clinics and get contact/location info quickly.</div>
+          </div>
+          <div class="home-feature">
+            <div class="feature-icon">📚</div>
+            <div class="feature-title">Pet info & care guides</div>
+            <div class="feature-text">Learn essentials and best practices for everyday care.</div>
+          </div>
+          <div class="home-feature">
+            <div class="feature-icon">🚨</div>
+            <div class="feature-title">SOS reports (requires login)</div>
+            <div class="feature-text">Post emergencies, track your reports, and coordinate help.</div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- Logged-in Home -->
+    <section id="authedHome" style="display:none;">
+      <div class="home-hero compact">
+        <div class="home-hero-content">
+          <div class="home-badge">Dashboard</div>
+          <h1 class="home-title" style="margin-bottom: 8px;">Welcome back</h1>
+          <p class="home-subtitle" id="authedSubtitle">Here’s an overview of your PawPal activity.</p>
+          <div class="home-cta">
+            <a href="sos_new.html" class="btn btn-primary btn-large">Report SOS</a>
+            <a href="sos.html" class="btn btn-secondary btn-large">Browse SOS</a>
+            <a href="my_sos.html" class="btn btn-secondary btn-large">My SOS</a>
+            <a href="clinics.html" class="btn btn-secondary btn-large">Find Clinics</a>
+          </div>
+        </div>
+      </div>
+
+      <section class="home-section">
+        <h2 class="home-section-title">Quick overview</h2>
+        <div class="home-stats">
+          <div class="home-stat">
+            <div class="stat-icon">🚨</div>
+            <div class="stat-value" id="sosCount">-</div>
+            <div class="stat-label">Active SOS reports</div>
+          </div>
+
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <!-- Image Modal (shared across pages) -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close" onclick="closeImageModal()">&times;</span>
+    <img class="modal-content" id="modalImage" alt="Full size image">
+  </div>
+
+  <script type="module">
+    import { getJSON } from "./js/api.js";
+    import { showLoading, showError } from "./js/utils.js";
+    import { updateNavigation } from "./js/nav.js";
+    import { isAuthenticated, getAuthUser } from "./js/auth.js";
+
+    // Update navigation
+    updateNavigation();
+
+    const authed = isAuthenticated();
+    const guestHome = document.getElementById("guestHome");
+    const authedHome = document.getElementById("authedHome");
+    if (guestHome) guestHome.style.display = authed ? "none" : "block";
+    if (authedHome) authedHome.style.display = authed ? "block" : "none";
+
+    if (authed) {
+      const u = getAuthUser();
+      const sub = document.getElementById("authedSubtitle");
+      if (sub && u?.name) sub.textContent = `Here’s an overview for ${u.name}.`;
+    }
+
+    // Load SOS count
+    async function loadSOSCount() {
+      try {
+        const data = await getJSON("/api/sos");
+        const count = Array.isArray(data) ? data.length : 0;
+        document.getElementById("sosCount").textContent = count;
+      } catch (error) {
+        console.error("Failed to load SOS count:", error);
+        document.getElementById("sosCount").textContent = "?";
+      }
+    }
+
+
+
+    // Load counts on page load
+    if (authed) loadSOSCount();
+
+  </script>
+
+  <script src="./js/modal.js"></script>
+</body>
+
+</html>

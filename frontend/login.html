@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pawpal — Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="has-sidebar">
+  <!-- Cute Header -->
+  <script type="module">
+    import { initHeader } from "./js/header.js";
+    import { initSidebar } from "./js/sidebar.js";
+    initHeader();
+    initSidebar();
+  </script>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="page-header">
+      <h1>Login</h1>
+      <p class="page-subtitle">Sign in to your Pawpal account</p>
+    </div>
+
+    <!-- Login Form -->
+    <section class="form-section" style="max-width: 500px; margin: 0 auto;">
+      <form id="loginForm" class="sos-form">
+        <div class="form-group">
+          <label for="email" class="form-label">Email <span class="required">*</span></label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            class="form-input" 
+            placeholder="your.email@example.com" 
+            required 
+            autocomplete="email"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Password <span class="required">*</span></label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            class="form-input" 
+            placeholder="Enter your password" 
+            required 
+            autocomplete="current-password"
+          />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
+            Login
+          </button>
+        </div>
+
+        <div style="text-align: center; margin-top: 16px;">
+          <p style="color: var(--muted);">
+            Don't have an account? <a href="signup.html" style="color: var(--primary);">Sign up</a>
+          </p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script type="module">
+    import { postJSON } from "./js/api.js";
+    import { setAuth } from "./js/auth.js";
+    import { showToast } from "./js/utils.js";
+
+    const form = document.getElementById("loginForm");
+    const submitBtn = document.getElementById("submitBtn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Logging in...";
+
+      try {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        const result = await postJSON("/api/auth/login", { email, password });
+        
+        // Store auth token and user info
+        setAuth(result.token, result.user);
+        
+        showToast("Login successful!", "success");
+        
+        // Redirect to home or redirect URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirect = urlParams.get("redirect") || "index.html";
+        
+        setTimeout(() => {
+          window.location.href = redirect;
+        }, 500);
+      } catch (error) {
+        console.error("Login failed:", error);
+        showToast(error.message || "Login failed. Please check your credentials.", "error");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Login";
+      }
+    });
+  </script>
+</body>
+</html>
+
+
