@@ -1,0 +1,156 @@
+[
+  {
+    "id": 1,
+    "name": "Happy Paws Vet Clinic",
+    "area": "Dhanmondi",
+    "open": "09:00",
+    "close": "20:00",
+    "phone": "+8801712345678"
+  },
+  {
+    "id": 2,
+    "name": "PetLife Animal Care",
+    "area": "Banani",
+    "open": "10:00",
+    "close": "19:00",
+    "phone": "+8801811223344"
+  },
+  {
+    "id": 3,
+    "name": "Dhaka Pet Hospital",
+    "area": "Uttara",
+    "open": "08:00",
+    "close": "22:00",
+    "phone": "+8801911223344"
+  },
+  {
+    "id": 4,
+    "name": "Pet Life Care",
+    "area": "Mirpur 2",
+    "open": "09:00",
+    "close": "21:30",
+    "phone": "+880 1957-090113",
+    "latitude": 23.80292716505555,
+    "longitude": 90.35351309146003
+  },
+  {
+    "id": 5,
+    "name": "Gulshan Pet Clinic",
+    "area": "Gulshan",
+    "open": "10:00",
+    "close": "21:00",
+    "phone": "01715-078434",
+    "latitude": 23.794216508857097,
+    "longitude": 90.41547895792601
+  },
+  {
+    "id": 6,
+    "name": "AKS Animal Care Centre",
+    "area": "Gulshan",
+    "open": "10:00",
+    "close": "21:00",
+    "phone": "01770-476749",
+    "latitude": 23.787914583203737,
+    "longitude": 90.4153398054901
+  },
+  {
+    "id": 7,
+    "name": "Bangladesh Animal Care Center (BACC)",
+    "area": "Gulshan",
+    "open": "00:00",
+    "close": "23:59",
+    "phone": "",
+    "latitude": 23.78784886357479,
+    "longitude": 90.41544494349283
+  },
+  {
+    "id": 8,
+    "name": "Pawsitive Veterinary Clinic",
+    "area": "Dhanmondi",
+    "open": "10:00",
+    "close": "22:00",
+    "phone": "01766662600",
+    "latitude": 23.74106851482323,
+    "longitude": 90.3821470619128
+  },
+  {
+    "id": 9,
+    "name": "Care & Cure Veterinary Clinic",
+    "area": "Dhanmondi",
+    "open": "10:00",
+    "close": "21:00",
+    "phone": "01551807384",
+    "latitude": 23.74500323524489,
+    "longitude": 90.3804900548659
+  },
+  {
+    "id": 10,
+    "name": "PAW Life Care Lalmatia",
+    "area": "Dhanmondi",
+    "open": "10:00",
+    "close": "21:00",
+    "phone": "01909617994",
+    "latitude": 23.757211013387668,
+    "longitude": 90.36445989109978
+  },
+  {
+    "id": 11,
+    "name": "AniMedCare",
+    "area": "Bashundhara Residential",
+    "open": "10:00",
+    "close": "22:00",
+    "phone": "01894947411",
+    "latitude": 23.80167562360958,
+    "longitude": 90.42380711993678
+  },
+  {
+    "id": 12,
+    "name": "Pet's Doctor & Care",
+    "area": "Bashundhara Residential",
+    "open": "10:00",
+    "close": "21:00",
+    "phone": "01914528629",
+    "latitude": 23.812132429466487,
+    "longitude": 90.4231084334302
+  },
+  {
+    "id": 13,
+    "name": "Vet Care For Pet",
+    "area": "Mirpur",
+    "open": "10:00",
+    "close": "21:00",
+    "phone": "01764-886258",
+    "latitude": 23.809126615157236,
+    "longitude": 90.36723465062214
+  },
+  {
+    "id": 14,
+    "name": "Pet Heaven Veterinary Clinic",
+    "area": "Mirpur",
+    "open": "10:00",
+    "close": "21:00",
+    "phone": "01944370090",
+    "latitude": 23.79703037997464,
+    "longitude": 90.36541863337112
+  },
+  {
+    "id": 15,
+    "name": "Furmillion Veterinary Clinic",
+    "area": "Mirpur",
+    "open": "10:00",
+    "close": "21:00",
+    "phone": "01944370090",
+    "latitude": 23.763644751475752,
+    "longitude": 90.36285705856544
+  },
+  {
+    "id": 16,
+    "name": "Pet Care & Vet Point, Mirpur",
+    "area": "Mirpur",
+    "open": "10:00",
+    "close": "21:00",
+    "phone": "01727014209",
+    "latitude": 23.813981855621268,
+    "longitude": 90.37193658740257
+  }
+]

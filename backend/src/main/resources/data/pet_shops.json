@@ -1,0 +1,134 @@
+[
+    {
+        "id": 1,
+        "name": "Pet Zone BD",
+        "area": "Gulshan",
+        "address": "Ga-109(1st Floor, Near pamp, Gulshan Badda Link Rd, Dhaka 1212",
+        "phone": "01726253747",
+        "latitude": 23.781472428653228,
+        "longitude": 90.42535471808672,
+        "open": "10:00",
+        "close": "20:00"
+    },
+    {
+        "id": 2,
+        "name": "Poshapets",
+        "area": "Gulshan",
+        "address": "House 3 Road No. 68, Dhaka 1213",
+        "phone": "01715444666",
+        "latitude": 23.80355663767083,
+        "longitude": 90.40945401253896,
+        "open": "10:00",
+        "close": "20:00"
+    },
+    {
+        "id": 3,
+        "name": "Banani Pet Mart",
+        "area": "Banani",
+        "address": "House: 67/C, Road: 11, Block: E, Care Pharmacy & City Bank ATM Building, Dhaka 1213",
+        "phone": "01806682289",
+        "latitude": 23.790829176167275,
+        "longitude": 90.40758352603169,
+        "open": "10:00",
+        "close": "20:00"
+    },
+    {
+        "id": 4,
+        "name": "Hello Pets BD",
+        "area": "Dhanmondi",
+        "address": "183 sath masjid road, Dhaka 1209",
+        "phone": "01306616661",
+        "latitude": 23.747689884776733,
+        "longitude": 90.37083746650963,
+        "open": "10:00",
+        "close": "22:00"
+    },
+    {
+        "id": 5,
+        "name": "PAW Pet Shop",
+        "area": "Dhanmondi",
+        "address": "1/2, Dhaka 1207",
+        "phone": "01788443392",
+        "latitude": 23.75713051327654,
+        "longitude": 90.36416516458179,
+        "open": "10:00",
+        "close": "20:00"
+    },
+    {
+        "id": 6,
+        "name": "MEW MEW SHOP BD (ADABOR)",
+        "area": "Dhanmondi",
+        "address": "695/1, Road 11, Adabor, Dhaka 1207",
+        "phone": "01408076089",
+        "latitude": 23.772052145759574,
+        "longitude": 90.35331730089437,
+        "open": "10:00",
+        "close": "20:00"
+    },
+    {
+        "id": 7,
+        "name": "Blue Bird Pet shop",
+        "area": "Bashundhara Residential",
+        "address": "Kacchi Bhai Building, K-9 Bashundhara, Jamuna pocket gate, Dhaka 1229",
+        "phone": "01794222362",
+        "latitude": 23.811915732214207,
+        "longitude": 90.42319595157608,
+        "open": "10:00",
+        "close": "22:00"
+    },
+    {
+        "id": 8,
+        "name": "Pet Town BD",
+        "area": "Bashundhara Residential",
+        "address": "Shop 109, 100Feet, Bashundhara Gate, Madani Ave, Dhaka 1212",
+        "phone": "01759699225",
+        "latitude": 23.799722264042376,
+        "longitude": 90.44280473708179,
+        "open": "10:00",
+        "close": "20:00"
+    },
+    {
+        "id": 9,
+        "name": "SagorMart Online Shop",
+        "area": "Mirpur",
+        "address": "Assalam Tower, 79 Zoo Road, Dhaka 1216",
+        "phone": "01714216568",
+        "latitude": 23.802889115658726,
+        "longitude": 90.35349633294318,
+        "open": "09:00",
+        "close": "20:00"
+    },
+    {
+        "id": 10,
+        "name": "Sb Pet Shop",
+        "area": "Mirpur",
+        "address": "Shop 3, Paka Mashjid, 60 Feet Road (Main Road, Kamal Soroni Rd, Dhaka 1216",
+        "phone": "01959126752",
+        "latitude": 23.789211405567496,
+        "longitude": 90.36649076753598,
+        "open": "10:00",
+        "close": "20:00"
+    },
+    {
+        "id": 11,
+        "name": "Loyal Pet Shop",
+        "area": "Mirpur",
+        "address": "Near metrorail pillar 286, 852/A Begum Rokeya Ave, 1216",
+        "phone": "01972541770",
+        "latitude": 23.797214549186528,
+        "longitude": 90.37307235276089,
+        "open": "10:00",
+        "close": "20:00"
+    },
+    {
+        "id": 12,
+        "name": "Billir Dokan",
+        "area": "Mirpur",
+        "address": "Ground Floor, House 05 Road 25, Dhaka 1216",
+        "phone": "01520100307",
+        "latitude": 23.8136004872482,
+        "longitude": 90.37175658639246,
+        "open": "10:00",
+        "close": "20:00"
+    }
+]

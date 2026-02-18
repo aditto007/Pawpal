@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "RobinHood The Animal Rescuer Headquarter",
+        "area": "Khilgaon",
+        "address": "1219 Road No. 9, Dhaka 1219",
+        "city": "Dhaka",
+        "phone": "01970737283",
+        "website": "https://www.robinhoodrescue.org/",
+        "latitude": 23.74595802848974,
+        "longitude": 90.42865672322928
+    },
+    {
+        "id": 2,
+        "name": "Obhoyaronno - Bangladesh Animal Welfare Foundation",
+        "area": "Mohakhali",
+        "address": "Dhaka North City Corporation Market, Shaheed Tajuddin Ahmed Ave, Dhaka 1208",
+        "city": "Dhaka",
+        "phone": "01718643497",
+        "website": "https://www.facebook.com/obhoyaronnobangladesh/",
+        "latitude": 23.774487189939194,
+        "longitude": 90.4008800986746
+    },
+    {
+        "id": 3,
+        "name": "Animal Welfare Team of Dhaka University",
+        "area": "Dhaka University",
+        "address": "University of Dhaka",
+        "city": "Dhaka",
+        "phone": "01683317353",
+        "latitude": 23.7337,
+        "longitude": 90.3928
+    }
+]
