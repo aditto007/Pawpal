@@ -1,0 +1,907 @@
+[
+  {
+    "id": 1,
+    "name": "Dog",
+    "species": "Canis lupus familiaris",
+    "emoji": "🐕",
+    "careBasics": [
+      "Provide daily exercise and mental stimulation through walks and play",
+      "Feed a balanced diet appropriate for age, size, and activity level",
+      "Schedule regular veterinary check-ups and keep vaccinations up to date",
+      "Groom regularly including brushing, nail trimming, and dental care",
+      "Ensure access to fresh water and a safe, comfortable living space"
+    ],
+    "breeds": [
+      {
+        "name": "Golden Retriever",
+        "careRequirements": "Needs 1-2 hours of exercise daily, regular grooming, prone to hip dysplasia",
+        "diet": "High-quality dry kibble (2-3 cups daily), lean meats, vegetables"
+      },
+      {
+        "name": "German Shepherd",
+        "careRequirements": "Requires extensive exercise and mental stimulation, regular brushing, watch for joint issues",
+        "diet": "Large breed formula (3-4 cups daily), protein-rich diet, joint supplements recommended"
+      },
+      {
+        "name": "Poodle",
+        "careRequirements": "Regular professional grooming every 4-6 weeks, daily brushing, hypoallergenic",
+        "diet": "Premium kibble (1-2 cups daily), can include fish and vegetables"
+      },
+      {
+        "name": "Bulldog",
+        "careRequirements": "Low exercise needs, regular skin fold cleaning, watch for breathing issues",
+        "diet": "Smaller portions (1-2 cups daily), avoid overfeeding, monitor weight"
+      }
+    ],
+    "recommendedDiets": [
+      "Puppy: High-protein puppy formula, 3-4 meals daily",
+      "Adult: Balanced kibble with 18-25% protein, 2 meals daily",
+      "Senior: Lower calorie, joint-support formula, 2 meals daily",
+      "Special: Grain-free options for sensitive stomachs, raw diet (with vet approval)"
+    ],
+    "commonDiseases": [
+      {
+        "name": "Parvovirus",
+        "symptoms": ["Severe vomiting", "Bloody diarrhea", "Lethargy", "Loss of appetite", "Fever"],
+        "remedy": "Immediate veterinary care, IV fluids, antibiotics, isolation"
+      },
+      {
+        "name": "Distemper",
+        "symptoms": ["Fever", "Nasal discharge", "Coughing", "Vomiting", "Seizures"],
+        "remedy": "Vaccination prevention, supportive care, antibiotics for secondary infections"
+      },
+      {
+        "name": "Hip Dysplasia",
+        "symptoms": ["Difficulty rising", "Limping", "Reduced activity", "Pain in hind legs"],
+        "remedy": "Weight management, joint supplements (glucosamine), anti-inflammatory medication, surgery in severe cases"
+      },
+      {
+        "name": "Ear Infections",
+        "symptoms": ["Head shaking", "Ear scratching", "Odor from ears", "Redness", "Discharge"],
+        "remedy": "Veterinary-prescribed ear drops, regular cleaning, keep ears dry"
+      }
+    ],
+    "medicineRecommendations": [
+      "Flea & Tick Prevention: Frontline Plus, Advantix, or Seresto collars (monthly application)",
+      "Heartworm Prevention: Heartgard Plus, Interceptor, or Sentinel (monthly, year-round)",
+      "Deworming: Panacur (fenbendazole) for roundworms, hookworms, whipworms",
+      "Pain Relief: Rimadyl (carprofen) or Metacam (meloxicam) - prescription only",
+      "Antibiotics: Amoxicillin, Cephalexin - prescription only, follow vet dosage",
+      "Ear Infections: Otomax or Mometamax ear drops - prescription only",
+      "Skin Allergies: Apoquel or Cytopoint injections - prescription only",
+      "⚠️ Always consult your veterinarian before administering any medication"
+    ],
+    "careGuide": {
+      "bathTime": {
+        "frequency": "Every 4-6 weeks (or when dirty)",
+        "tips": [
+          "Use dog-specific shampoo (human shampoo can irritate skin)",
+          "Brush before bathing to remove loose fur and tangles",
+          "Use lukewarm water and avoid getting water in ears",
+          "Dry thoroughly with towel and/or blow dryer on low heat",
+          "Reward with treats after bath to create positive association"
+        ]
+      },
+      "feedTime": {
+        "schedule": "2 meals daily (morning and evening)",
+        "tips": [
+          "Puppies: 3-4 meals daily until 6 months old",
+          "Adult dogs: Feed at consistent times (e.g., 8 AM and 6 PM)",
+          "Senior dogs: May need smaller, more frequent meals",
+          "Always provide fresh water, especially after meals",
+          "Avoid feeding immediately before or after exercise"
+        ]
+      },
+      "playTime": {
+        "duration": "30-60 minutes daily (varies by breed)",
+        "activities": [
+          "Daily walks (at least 20-30 minutes)",
+          "Fetch games with balls or frisbees",
+          "Tug-of-war with rope toys",
+          "Puzzle toys for mental stimulation",
+          "Socialization with other dogs at dog parks",
+          "Training sessions (5-10 minutes) for mental exercise"
+        ]
+      },
+      "happinessTips": [
+        "Provide daily exercise and mental stimulation",
+        "Establish a consistent routine for feeding and walks",
+        "Give plenty of affection and positive reinforcement",
+        "Provide safe chew toys to prevent boredom",
+        "Ensure comfortable sleeping area with bed or crate",
+        "Regular grooming and health check-ups",
+        "Social interaction with family members",
+        "Training and learning new tricks together"
+      ]
+    },
+    "image": "images/dog.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Cat",
+    "species": "Felis catus",
+    "emoji": "🐈",
+    "careBasics": [
+      "Provide a clean litter box and scoop daily to maintain hygiene",
+      "Feed high-quality cat food with appropriate portions to prevent obesity",
+      "Schedule annual veterinary visits for vaccinations and health checks",
+      "Offer scratching posts and interactive toys for mental stimulation",
+      "Groom regularly, especially for long-haired breeds, to prevent matting"
+    ],
+    "breeds": [
+      {
+        "name": "Persian",
+        "careRequirements": "Daily grooming required, flat face needs regular cleaning, indoor only",
+        "diet": "High-quality wet and dry food, hairball control formula recommended"
+      },
+      {
+        "name": "Maine Coon",
+        "careRequirements": "Regular brushing 2-3 times weekly, large space needed, social breed",
+        "diet": "Large breed cat food, 2-3 meals daily, monitor weight"
+      },
+      {
+        "name": "Siamese",
+        "careRequirements": "Minimal grooming, very vocal, needs attention and interaction",
+        "diet": "High-protein diet, 2 meals daily, avoid overfeeding"
+      },
+      {
+        "name": "British Shorthair",
+        "careRequirements": "Weekly brushing, calm temperament, prone to obesity",
+        "diet": "Portion-controlled meals, weight management formula"
+      }
+    ],
+    "recommendedDiets": [
+      "Kitten: High-protein kitten formula, 3-4 meals daily until 6 months",
+      "Adult: Complete balanced cat food, 2 meals daily, 20-30% protein",
+      "Senior: Lower calorie, easily digestible, 2 meals daily",
+      "Special: Hairball control, urinary health, grain-free options"
+    ],
+    "commonDiseases": [
+      {
+        "name": "Feline Upper Respiratory Infection",
+        "symptoms": ["Sneezing", "Nasal discharge", "Watery eyes", "Loss of appetite", "Lethargy"],
+        "remedy": "Veterinary care, antibiotics if bacterial, supportive care, isolation"
+      },
+      {
+        "name": "Feline Lower Urinary Tract Disease",
+        "symptoms": ["Frequent urination", "Straining", "Blood in urine", "Crying in litter box"],
+        "remedy": "Immediate vet visit, increase water intake, special urinary diet, medication"
+      },
+      {
+        "name": "Kidney Disease",
+        "symptoms": ["Increased thirst", "Weight loss", "Vomiting", "Bad breath", "Lethargy"],
+        "remedy": "Prescription kidney diet, fluid therapy, regular monitoring, medication"
+      },
+      {
+        "name": "Diabetes",
+        "symptoms": ["Increased thirst", "Frequent urination", "Weight loss", "Increased appetite"],
+        "remedy": "Insulin therapy, special diet, weight management, regular monitoring"
+      }
+    ],
+    "medicineRecommendations": [
+      "Flea & Tick Prevention: Frontline Plus, Advantage II, or Seresto collars (monthly)",
+      "Heartworm Prevention: Revolution or Heartgard for Cats (monthly, year-round)",
+      "Deworming: Drontal Plus or Panacur (fenbendazole) for roundworms, tapeworms",
+      "Pain Relief: Onsior (robenacoxib) or Buprenex (buprenorphine) - prescription only",
+      "Antibiotics: Clavamox (amoxicillin-clavulanate) or Convenia injection - prescription only",
+      "Upper Respiratory: Doxycycline or Azithromycin - prescription only",
+      "Urinary Health: Prescription diets (Hill's c/d, Royal Canin Urinary) or medications",
+      "⚠️ Never give human medications to cats - many are toxic (especially Tylenol, Aspirin)"
+    ],
+    "careGuide": {
+      "bathTime": {
+        "frequency": "Rarely needed (cats are self-groomers)",
+        "tips": [
+          "Most cats don't need regular baths - they groom themselves",
+          "Bathe only if cat is dirty, has fleas, or can't groom (elderly/obese)",
+          "Use cat-specific shampoo (never dog or human shampoo)",
+          "Keep water warm but not hot",
+          "Be gentle and calm - use treats to reward cooperation",
+          "Dry thoroughly and keep warm after bath"
+        ]
+      },
+      "feedTime": {
+        "schedule": "2-3 meals daily (or free-feeding for some cats)",
+        "tips": [
+          "Kittens: 3-4 meals daily until 6 months",
+          "Adult cats: 2 meals daily or controlled portions",
+          "Wet food is better for hydration (mix with dry food)",
+          "Feed at consistent times to establish routine",
+          "Provide fresh water in multiple locations",
+          "Avoid feeding human food (many are toxic to cats)"
+        ]
+      },
+      "playTime": {
+        "duration": "15-30 minutes daily (multiple short sessions)",
+        "activities": [
+          "Interactive toys (feather wands, laser pointers - use carefully)",
+          "Puzzle feeders for mental stimulation",
+          "Cat trees and climbing structures",
+          "Hide and seek games",
+          "Chasing toys (balls, mice, crinkle toys)",
+          "Window perches for bird watching"
+        ]
+      },
+      "happinessTips": [
+        "Provide multiple scratching posts and surfaces",
+        "Keep litter box clean (scoop daily, change weekly)",
+        "Offer vertical space (cat trees, shelves)",
+        "Provide hiding spots and cozy beds",
+        "Interactive play sessions daily",
+        "Respect their independence and space",
+        "Regular grooming (especially long-haired cats)",
+        "Multiple food and water stations in different locations"
+      ]
+    },
+    "image": "images/cat.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Rabbit",
+    "species": "Oryctolagus cuniculus",
+    "emoji": "🐰",
+    "careBasics": [
+      "Provide unlimited hay (timothy or orchard grass) as the primary diet",
+      "Offer fresh vegetables daily and limited pellets for balanced nutrition",
+      "Ensure a spacious enclosure with room to hop and exercise",
+      "Provide hiding places and toys for mental enrichment",
+      "Schedule regular veterinary check-ups with a rabbit-savvy veterinarian"
+    ],
+    "breeds": [
+      {
+        "name": "Dutch Rabbit",
+        "careRequirements": "Regular brushing, needs exercise space, social animal",
+        "diet": "Unlimited hay, 1/4 cup pellets, fresh vegetables daily"
+      },
+      {
+        "name": "Lop Rabbit",
+        "careRequirements": "Regular ear cleaning, gentle handling, needs companionship",
+        "diet": "Timothy hay, limited pellets, leafy greens daily"
+      },
+      {
+        "name": "Angora",
+        "careRequirements": "Daily grooming essential, prevent matting, indoor housing",
+        "diet": "High-fiber hay, minimal pellets, fresh vegetables"
+      },
+      {
+        "name": "Rex",
+        "careRequirements": "Minimal grooming, soft fur, active breed needs space",
+        "diet": "Unlimited hay, 1/4 cup pellets, variety of vegetables"
+      }
+    ],
+    "recommendedDiets": [
+      "Primary: Unlimited timothy or orchard grass hay (80% of diet)",
+      "Pellets: 1/4 cup per 5 lbs body weight daily",
+      "Vegetables: 1-2 cups fresh leafy greens daily (kale, romaine, parsley)",
+      "Treats: Small amounts of fruits (apple, banana) 2-3 times weekly"
+    ],
+    "commonDiseases": [
+      {
+        "name": "GI Stasis",
+        "symptoms": ["Loss of appetite", "No droppings", "Lethargy", "Bloated abdomen", "Hunched posture"],
+        "remedy": "Emergency vet visit, pain medication, fluid therapy, force-feeding, motility drugs"
+      },
+      {
+        "name": "Dental Problems",
+        "symptoms": ["Drooling", "Difficulty eating", "Weight loss", "Face swelling"],
+        "remedy": "Veterinary dental exam, tooth trimming, pain management, proper diet"
+      },
+      {
+        "name": "Snuffles (Pasteurella)",
+        "symptoms": ["Sneezing", "Nasal discharge", "Watery eyes", "Head tilting"],
+        "remedy": "Antibiotics, supportive care, clean environment, isolate from other rabbits"
+      },
+      {
+        "name": "E. Cuniculi",
+        "symptoms": ["Head tilt", "Loss of balance", "Eye problems", "Kidney issues"],
+        "remedy": "Antiparasitic medication, supportive care, long-term treatment may be needed"
+      }
+    ],
+    "medicineRecommendations": [
+      "GI Stasis: Metoclopramide (Reglan) or Cisapride - prescription only, emergency use",
+      "Pain Relief: Meloxicam (Metacam) - prescription only, rabbit-safe NSAID",
+      "Antibiotics: Enrofloxacin (Baytril) or Trimethoprim-Sulfa - prescription only",
+      "Parasites: Fenbendazole (Panacur) for pinworms, roundworms - prescription only",
+      "E. Cuniculi: Fenbendazole (Panacur) for 28 days - prescription only",
+      "Respiratory: Doxycycline or Enrofloxacin - prescription only",
+      "⚠️ Rabbits are sensitive - always use rabbit-specific dosages, never human medications"
+    ],
+    "careGuide": {
+      "bathTime": {
+        "frequency": "Rarely needed (spot clean if necessary)",
+        "tips": [
+          "Rabbits are self-groomers and rarely need baths",
+          "Only bathe if extremely dirty or medically necessary",
+          "Use shallow warm water (never submerge completely)",
+          "Dry immediately and thoroughly with towel",
+          "Keep warm after bath to prevent hypothermia",
+          "Spot clean with damp cloth for minor messes"
+        ]
+      },
+      "feedTime": {
+        "schedule": "Hay available 24/7, pellets 2x daily, vegetables 1x daily",
+        "tips": [
+          "Unlimited hay should always be available",
+          "Pellets: 1/4 cup per 5 lbs body weight, twice daily",
+          "Fresh vegetables: 1-2 cups in morning or evening",
+          "Treats: Small fruit pieces 2-3 times per week",
+          "Fresh water changed daily in bowl or bottle",
+          "Monitor for GI stasis - loss of appetite is emergency"
+        ]
+      },
+      "playTime": {
+        "duration": "2-4 hours daily (supervised out-of-cage time)",
+        "activities": [
+          "Free-roaming time in rabbit-proofed area",
+          "Cardboard boxes and tunnels for hiding",
+          "Puzzle toys and treat dispensers",
+          "Digging boxes with safe materials",
+          "Chew toys (apple branches, willow balls)",
+          "Social interaction with bonded rabbit or human"
+        ]
+      },
+      "happinessTips": [
+        "Provide spacious enclosure (minimum 4x2 feet for small rabbit)",
+        "Offer hiding places and tunnels",
+        "Social companionship (bonded pair or human interaction)",
+        "Safe chewing materials (hay, cardboard, apple wood)",
+        "Regular exercise outside cage daily",
+        "Quiet, calm environment (rabbits are prey animals)",
+        "Consistent routine for feeding and handling",
+        "Gentle petting and positive reinforcement"
+      ]
+    },
+    "image": "images/rabbit.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Parrot",
+    "species": "Psittaciformes",
+    "emoji": "🦜",
+    "careBasics": [
+      "Provide a varied diet of pellets, fresh fruits, vegetables, and seeds",
+      "Ensure a large cage with perches, toys, and space for wing stretching",
+      "Offer daily social interaction and mental stimulation to prevent boredom",
+      "Maintain clean environment with fresh water and regular cage cleaning",
+      "Schedule annual avian veterinary check-ups for health monitoring"
+    ],
+    "breeds": [
+      {
+        "name": "African Grey",
+        "careRequirements": "Highly intelligent, needs mental stimulation, social interaction essential",
+        "diet": "Pellets (70%), fresh fruits/vegetables (20%), seeds/nuts (10%)"
+      },
+      {
+        "name": "Cockatiel",
+        "careRequirements": "Social bird, needs companionship, regular out-of-cage time",
+        "diet": "Seed mix, pellets, fresh vegetables, occasional fruits"
+      },
+      {
+        "name": "Macaw",
+        "careRequirements": "Very large space needed, strong beak requires tough toys, long lifespan",
+        "diet": "Large parrot pellets, nuts, fresh fruits and vegetables daily"
+      },
+      {
+        "name": "Budgerigar",
+        "careRequirements": "Small but active, needs flight space, social with other budgies",
+        "diet": "Seed mix, millet, fresh greens, cuttlebone for calcium"
+      }
+    ],
+    "recommendedDiets": [
+      "Base: High-quality pellets (60-70% of diet)",
+      "Fresh foods: Vegetables (20-25%), fruits (5-10%), cooked grains",
+      "Treats: Nuts, seeds (10% max), avoid avocado, chocolate, caffeine",
+      "Supplements: Cuttlebone for calcium, mineral blocks"
+    ],
+    "commonDiseases": [
+      {
+        "name": "Psittacosis",
+        "symptoms": ["Respiratory distress", "Nasal discharge", "Lethargy", "Loss of appetite", "Diarrhea"],
+        "remedy": "Antibiotics (doxycycline), isolation, supportive care, zoonotic - humans can catch"
+      },
+      {
+        "name": "Feather Plucking",
+        "symptoms": ["Bald patches", "Self-mutilation", "Behavioral changes"],
+        "remedy": "Identify cause (stress, boredom, medical), environmental enrichment, behavioral modification"
+      },
+      {
+        "name": "Aspergillosis",
+        "symptoms": ["Difficulty breathing", "Wheezing", "Lethargy", "Weight loss"],
+        "remedy": "Antifungal medication, improve air quality, reduce mold exposure"
+      },
+      {
+        "name": "Beak and Feather Disease",
+        "symptoms": ["Abnormal feathers", "Beak deformities", "Immune suppression"],
+        "remedy": "Supportive care, no cure, prevent spread to other birds, quarantine"
+      }
+    ],
+    "medicineRecommendations": [
+      "Respiratory Infections: Doxycycline or Enrofloxacin (Baytril) - prescription only",
+      "Psittacosis: Doxycycline for 45 days minimum - prescription only, zoonotic",
+      "Fungal Infections: Itraconazole or Fluconazole - prescription only",
+      "Parasites: Ivermectin or Moxidectin - prescription only, avian-specific dosage",
+      "Pain Relief: Meloxicam (Metacam) - prescription only, avian dosage",
+      "Probiotics: Avian-specific probiotics (Lactobacillus) for digestive health",
+      "⚠️ Birds require precise dosing by weight - always consult an avian veterinarian"
+    ],
+    "careGuide": {
+      "bathTime": {
+        "frequency": "2-3 times per week (or daily misting)",
+        "tips": [
+          "Provide shallow dish of water for bathing",
+          "Mist with spray bottle (lukewarm water)",
+          "Some parrots enjoy showering with owner",
+          "Ensure room is warm during and after bath",
+          "Allow to air dry or use low-heat blow dryer",
+          "Never force - let bird choose to bathe"
+        ]
+      },
+      "feedTime": {
+        "schedule": "2 meals daily (morning and evening)",
+        "tips": [
+          "Pellets: 60-70% of diet, available throughout day",
+          "Fresh foods: Vegetables and fruits offered 2x daily",
+          "Remove uneaten fresh food after 2-3 hours",
+          "Seeds/nuts: Limited treats (10% of diet)",
+          "Fresh water changed daily",
+          "Variety is key - rotate different vegetables and fruits"
+        ]
+      },
+      "playTime": {
+        "duration": "2-4 hours daily (out-of-cage time)",
+        "activities": [
+          "Out-of-cage time for exercise and exploration",
+          "Interactive toys (puzzle feeders, foraging toys)",
+          "Training sessions (tricks, talking, commands)",
+          "Social interaction and talking with owner",
+          "Music and environmental enrichment",
+          "Destructible toys (wood, cardboard, paper)"
+        ]
+      },
+      "happinessTips": [
+        "Large cage with multiple perches at different heights",
+        "Daily social interaction and attention",
+        "Mental stimulation (puzzle toys, training)",
+        "Variety of toys rotated regularly",
+        "Safe out-of-cage time for exercise",
+        "Consistent routine and schedule",
+        "Positive reinforcement training",
+        "Respect their need for quiet time and sleep (10-12 hours)"
+      ]
+    },
+    "image": "images/parrot.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Hamster",
+    "species": "Cricetinae",
+    "emoji": "🐹",
+    "careBasics": [
+      "Provide a spacious cage with bedding, hiding spots, and exercise wheel",
+      "Feed commercial hamster mix supplemented with fresh vegetables",
+      "Clean cage regularly to prevent odor and maintain hygiene",
+      "Handle gently and provide enrichment toys to prevent boredom",
+      "Monitor for signs of illness as hamsters hide symptoms well"
+    ],
+    "breeds": [
+      {
+        "name": "Syrian Hamster",
+        "careRequirements": "Solitary, needs large cage, exercise wheel essential, nocturnal",
+        "diet": "Commercial hamster mix, fresh vegetables, occasional protein"
+      },
+      {
+        "name": "Dwarf Hamster",
+        "careRequirements": "Can be kept in pairs, smaller cage acceptable, very active",
+        "diet": "Dwarf hamster mix, fresh greens, small amounts of fruit"
+      },
+      {
+        "name": "Roborovski",
+        "careRequirements": "Very small, fast, difficult to handle, needs secure cage",
+        "diet": "Small seed mix, fresh vegetables, minimal fruits"
+      }
+    ],
+    "recommendedDiets": [
+      "Base: Commercial hamster pellet mix (main diet)",
+      "Fresh: Small amounts of vegetables (carrots, broccoli, cucumber)",
+      "Protein: Occasional mealworms, cooked egg, small amounts of chicken",
+      "Treats: Small pieces of fruit (apple, banana) 2-3 times weekly"
+    ],
+    "commonDiseases": [
+      {
+        "name": "Wet Tail",
+        "symptoms": ["Diarrhea", "Wet fur around tail", "Lethargy", "Loss of appetite", "Hunched posture"],
+        "remedy": "Immediate veterinary care, antibiotics, fluid therapy, keep warm and clean"
+      },
+      {
+        "name": "Respiratory Infections",
+        "symptoms": ["Sneezing", "Wheezing", "Discharge from nose/eyes", "Lethargy"],
+        "remedy": "Veterinary care, antibiotics, improve cage ventilation, reduce stress"
+      },
+      {
+        "name": "Skin Problems",
+        "symptoms": ["Hair loss", "Scratching", "Redness", "Scabs"],
+        "remedy": "Veterinary diagnosis, topical treatments, improve hygiene, check for mites"
+      }
+    ],
+    "medicineRecommendations": [
+      "Wet Tail: Antibiotics (Trimethoprim-Sulfa or Enrofloxacin) - prescription only, emergency",
+      "Respiratory Infections: Baytril (enrofloxacin) - prescription only",
+      "Parasites: Ivermectin or Revolution (selamectin) - prescription only",
+      "Pain Relief: Meloxicam (Metacam) - prescription only, very small doses",
+      "Skin Issues: Topical treatments (miconazole for fungal, antibiotics for bacterial)",
+      "⚠️ Hamsters are very small - require precise micro-dosing, always consult a vet"
+    ],
+    "careGuide": {
+      "bathTime": {
+        "frequency": "Never bathe (use sand bath instead)",
+        "tips": [
+          "Hamsters should NEVER be bathed in water",
+          "Provide sand bath (chinchilla sand) for cleaning",
+          "Sand bath helps remove oils and keeps fur clean",
+          "Place sand in shallow dish in cage",
+          "Hamster will roll in sand to clean itself",
+          "Remove and replace sand weekly"
+        ]
+      },
+      "feedTime": {
+        "schedule": "Evening (hamsters are nocturnal)",
+        "tips": [
+          "Feed in evening when hamster is active",
+          "Commercial hamster mix as base diet",
+          "Fresh vegetables: Small amounts 2-3 times weekly",
+          "Protein: Mealworms or cooked egg once weekly",
+          "Remove uneaten fresh food after 24 hours",
+          "Fresh water changed daily in bottle"
+        ]
+      },
+      "playTime": {
+        "duration": "Evening play sessions (15-30 minutes)",
+        "activities": [
+          "Exercise wheel (essential for daily exercise)",
+          "Hamster ball for supervised exploration",
+          "Tunnels and hideouts in cage",
+          "Chew toys (wooden blocks, cardboard)",
+          "Digging box with safe bedding material",
+          "Gentle handling during active hours (evening)"
+        ]
+      },
+      "happinessTips": [
+        "Spacious cage (minimum 450 sq inches floor space)",
+        "Deep bedding for burrowing (paper-based or aspen)",
+        "Exercise wheel (solid surface, appropriate size)",
+        "Multiple hideouts and tunnels",
+        "Quiet location (hamsters are sensitive to noise)",
+        "Consistent routine (feed and interact at same times)",
+        "Safe, supervised out-of-cage time",
+        "Respect their nocturnal nature (active at night)"
+      ]
+    },
+    "image": "images/hamster.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Bird",
+    "species": "Various",
+    "emoji": "🐦",
+    "careBasics": [
+      "Provide appropriate cage size for species with perches and toys",
+      "Offer varied diet including seeds, pellets, and fresh foods",
+      "Ensure daily out-of-cage time for exercise and social interaction",
+      "Maintain clean environment with fresh water and regular cleaning",
+      "Schedule regular avian veterinary check-ups"
+    ],
+    "breeds": [
+      {
+        "name": "Canary",
+        "careRequirements": "Good for beginners, needs flight space, enjoys singing",
+        "diet": "Canary seed mix, fresh greens, cuttlebone"
+      },
+      {
+        "name": "Finch",
+        "careRequirements": "Social, keep in pairs, needs horizontal flight space",
+        "diet": "Finch seed mix, fresh vegetables, egg food for breeding"
+      },
+      {
+        "name": "Lovebird",
+        "careRequirements": "Active, needs large cage, social with partner",
+        "diet": "Seed mix, pellets, fresh fruits and vegetables"
+      }
+    ],
+    "recommendedDiets": [
+      "Base: Species-appropriate seed mix or pellets",
+      "Fresh: Leafy greens, vegetables, small amounts of fruit",
+      "Protein: Egg food, mealworms (for some species)",
+      "Supplements: Cuttlebone, mineral blocks, grit"
+    ],
+    "commonDiseases": [
+      {
+        "name": "Respiratory Infections",
+        "symptoms": ["Sneezing", "Nasal discharge", "Difficulty breathing", "Lethargy"],
+        "remedy": "Veterinary care, antibiotics, improve air quality, reduce drafts"
+      },
+      {
+        "name": "Mites",
+        "symptoms": ["Feather loss", "Scratching", "Crusty beak", "Restlessness"],
+        "remedy": "Veterinary-prescribed mite treatment, clean and disinfect cage"
+      }
+    ],
+    "medicineRecommendations": [
+      "Respiratory Infections: Doxycycline or Enrofloxacin - prescription only",
+      "Parasites: Ivermectin or Moxidectin - prescription only, species-specific dosage",
+      "Fungal Infections: Itraconazole - prescription only",
+      "Probiotics: Avian probiotics for digestive health",
+      "Vitamins: Avian multivitamin supplements (water-soluble)",
+      "⚠️ Small birds require very precise dosing - always consult an avian veterinarian"
+    ],
+    "careGuide": {
+      "bathTime": {
+        "frequency": "2-3 times per week (or daily misting)",
+        "tips": [
+          "Provide shallow dish of water for bathing",
+          "Mist with spray bottle (lukewarm water)",
+          "Some birds enjoy showering",
+          "Ensure room is warm during and after",
+          "Allow to air dry naturally",
+          "Never force - let bird choose"
+        ]
+      },
+      "feedTime": {
+        "schedule": "Food available throughout day, fresh foods 2x daily",
+        "tips": [
+          "Base diet: Species-appropriate seed mix or pellets",
+          "Fresh vegetables: Offered morning and evening",
+          "Remove uneaten fresh food after 2-3 hours",
+          "Fresh water changed daily",
+          "Cuttlebone and mineral blocks always available",
+          "Variety in diet prevents boredom"
+        ]
+      },
+      "playTime": {
+        "duration": "1-2 hours daily (out-of-cage time)",
+        "activities": [
+          "Out-of-cage time for flight and exercise",
+          "Interactive toys (swings, bells, mirrors)",
+          "Foraging toys with treats inside",
+          "Social interaction with owner",
+          "Music and environmental sounds",
+          "Training sessions (tricks, step-up)"
+        ]
+      },
+      "happinessTips": [
+        "Appropriate cage size for species (horizontal for finches, vertical for canaries)",
+        "Multiple perches of different sizes and textures",
+        "Daily out-of-cage time for exercise",
+        "Social interaction (some species need companions)",
+        "Variety of toys rotated regularly",
+        "Quiet, safe location away from drafts",
+        "Consistent routine for feeding and interaction",
+        "Respect their need for sleep (10-12 hours of darkness)"
+      ]
+    },
+    "image": "images/bird.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Turtle",
+    "species": "Testudines",
+    "emoji": "🐢",
+    "careBasics": [
+      "Provide appropriate habitat with both land and water areas (aquatic species)",
+      "Maintain proper water temperature and filtration for aquatic turtles",
+      "Offer UVB lighting for calcium absorption and shell health",
+      "Feed species-appropriate diet including commercial pellets and fresh foods",
+      "Schedule regular veterinary check-ups with a reptile specialist"
+    ],
+    "breeds": [
+      {
+        "name": "Red-Eared Slider",
+        "careRequirements": "Large aquatic tank, basking area, UVB lighting essential",
+        "diet": "Commercial turtle pellets, leafy greens, occasional protein"
+      },
+      {
+        "name": "Box Turtle",
+        "careRequirements": "Terrestrial setup, humidity control, hiding places",
+        "diet": "Varied: vegetables, fruits, insects, commercial turtle food"
+      },
+      {
+        "name": "Painted Turtle",
+        "careRequirements": "Aquatic habitat, basking platform, water filtration",
+        "diet": "Omnivorous: pellets, fish, vegetables, insects"
+      }
+    ],
+    "recommendedDiets": [
+      "Aquatic: Commercial turtle pellets (50%), leafy greens (30%), protein (20%)",
+      "Terrestrial: Vegetables (40%), fruits (20%), protein (30%), commercial food (10%)",
+      "Supplements: Calcium powder, multivitamin supplements",
+      "Avoid: Processed foods, excessive protein, iceberg lettuce"
+    ],
+    "commonDiseases": [
+      {
+        "name": "Shell Rot",
+        "symptoms": ["Soft spots on shell", "Discoloration", "Foul odor", "Pitting"],
+        "remedy": "Veterinary care, clean shell, improve water quality, topical treatments"
+      },
+      {
+        "name": "Respiratory Infection",
+        "symptoms": ["Bubbles from nose/mouth", "Lethargy", "Loss of appetite", "Swimming lopsided"],
+        "remedy": "Veterinary care, antibiotics, maintain proper temperature, improve water quality"
+      },
+      {
+        "name": "Metabolic Bone Disease",
+        "symptoms": ["Soft shell", "Swollen limbs", "Difficulty moving", "Deformed shell"],
+        "remedy": "UVB lighting, calcium supplements, proper diet, veterinary care"
+      }
+    ],
+    "medicineRecommendations": [
+      "Respiratory Infections: Ceftazidime or Enrofloxacin injections - prescription only",
+      "Shell Rot: Topical silver sulfadiazine cream or Betadine soaks - prescription recommended",
+      "Parasites: Fenbendazole (Panacur) - prescription only, reptile-specific dosage",
+      "Metabolic Bone Disease: Calcium supplements with D3, UVB lighting essential",
+      "Vitamin A Deficiency: Injectable vitamin A - prescription only",
+      "⚠️ Reptiles require specific temperature ranges for medication effectiveness - consult a reptile vet"
+    ],
+    "careGuide": {
+      "bathTime": {
+        "frequency": "Aquatic: Not needed (live in water). Terrestrial: Weekly soaks",
+        "tips": [
+          "Aquatic turtles: Clean water is their bath (maintain filtration)",
+          "Terrestrial turtles: Weekly warm water soaks (15-20 minutes)",
+          "Use shallow container with lukewarm water",
+          "Water should reach shell but not cover head",
+          "Gently brush shell with soft brush if needed",
+          "Dry thoroughly after soak"
+        ]
+      },
+      "feedTime": {
+        "schedule": "Daily for young turtles, every other day for adults",
+        "tips": [
+          "Young turtles: Feed daily",
+          "Adult turtles: Feed every other day or 3-4 times weekly",
+          "Feed in separate container to keep main tank clean",
+          "Commercial pellets as base diet",
+          "Fresh vegetables and protein offered regularly",
+          "Calcium supplements 2-3 times weekly"
+        ]
+      },
+      "playTime": {
+        "duration": "Supervised exploration time",
+        "activities": [
+          "Supervised out-of-tank time for exploration",
+          "Aquatic turtles: Swimming and basking",
+          "Terrestrial turtles: Walking and exploring safe area",
+          "Environmental enrichment (rocks, plants, hiding spots)",
+          "Feeding puzzles and varied food presentation",
+          "Gentle handling and interaction"
+        ]
+      },
+      "happinessTips": [
+        "Proper habitat size (10 gallons per inch of shell length minimum)",
+        "UVB lighting essential for 10-12 hours daily",
+        "Basking area with heat lamp (85-95°F)",
+        "Clean water with proper filtration (aquatic species)",
+        "Appropriate substrate and hiding places",
+        "Varied diet with proper calcium supplementation",
+        "Consistent temperature and lighting schedule",
+        "Regular health monitoring and veterinary care"
+      ]
+    },
+    "image": "images/turtle.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Fish",
+    "species": "Various",
+    "emoji": "🐠",
+    "careBasics": [
+      "Maintain proper water parameters including temperature, pH, and filtration",
+      "Feed appropriate diet for species, avoiding overfeeding",
+      "Perform regular water changes to maintain water quality",
+      "Provide adequate tank size and appropriate tank mates",
+      "Monitor for signs of illness and quarantine new fish before introduction"
+    ],
+    "breeds": [
+      {
+        "name": "Goldfish",
+        "careRequirements": "Large tank (20+ gallons), good filtration, cool water",
+        "diet": "Goldfish flakes/pellets, vegetables, occasional protein"
+      },
+      {
+        "name": "Betta",
+        "careRequirements": "Minimum 5 gallons, warm water, gentle filtration",
+        "diet": "Betta pellets, frozen/live foods, avoid overfeeding"
+      },
+      {
+        "name": "Guppy",
+        "careRequirements": "Community tank, warm water, good for beginners",
+        "diet": "Flakes, small pellets, occasional live foods"
+      },
+      {
+        "name": "Angelfish",
+        "careRequirements": "Tall tank, warm water, peaceful tank mates",
+        "diet": "Flakes, pellets, frozen foods, vegetables"
+      }
+    ],
+    "recommendedDiets": [
+      "Tropical: High-quality flakes/pellets, frozen foods (bloodworms, brine shrimp)",
+      "Coldwater: Species-specific pellets, vegetables, occasional protein",
+      "Feeding: Small amounts 2-3 times daily, only what they can eat in 2 minutes",
+      "Variety: Rotate between flakes, pellets, frozen, and live foods"
+    ],
+    "commonDiseases": [
+      {
+        "name": "Ich (White Spot Disease)",
+        "symptoms": ["White spots on body/fins", "Rubbing against objects", "Lethargy", "Loss of appetite"],
+        "remedy": "Increase temperature gradually, ich medication, salt treatment, improve water quality"
+      },
+      {
+        "name": "Fin Rot",
+        "symptoms": ["Torn/frayed fins", "Redness at fin base", "Fins getting shorter"],
+        "remedy": "Water quality improvement, antibiotics if severe, remove stressors"
+      },
+      {
+        "name": "Swim Bladder Disease",
+        "symptoms": ["Floating at surface", "Sinking to bottom", "Swimming difficulty", "Loss of balance"],
+        "remedy": "Fasting for 2-3 days, then feed peas, improve water quality, check for constipation"
+      },
+      {
+        "name": "Dropsy",
+        "symptoms": ["Swollen abdomen", "Scales sticking out", "Lethargy", "Loss of appetite"],
+        "remedy": "Isolate immediately, antibiotics, Epsom salt bath, often fatal - early treatment critical"
+      }
+    ],
+    "medicineRecommendations": [
+      "Ich Treatment: Malachite green, formalin, or copper-based treatments (follow instructions)",
+      "Bacterial Infections: API Melafix, Maracyn, or Kanaplex - follow dosage carefully",
+      "Fungal Infections: API Pimafix or Methylene blue baths",
+      "Parasites: Praziquantel for internal parasites, formalin for external",
+      "Water Quality: Prime or Stress Coat for water conditioning and stress reduction",
+      "⚠️ Always remove activated carbon from filter when medicating, follow exact dosages"
+    ],
+    "careGuide": {
+      "bathTime": {
+        "frequency": "Not applicable (live in water)",
+        "tips": [
+          "Fish don't need baths - they live in water",
+          "Maintain clean water through regular water changes",
+          "Weekly water changes: 25-30% of tank volume",
+          "Use water conditioner to remove chlorine",
+          "Test water parameters regularly (pH, ammonia, nitrites)",
+          "Clean tank decorations and filter monthly"
+        ]
+      },
+      "feedTime": {
+        "schedule": "2-3 times daily (small amounts)",
+        "tips": [
+          "Feed small amounts 2-3 times daily",
+          "Only feed what fish can consume in 2 minutes",
+          "Remove uneaten food to prevent water pollution",
+          "Variety: Rotate between flakes, pellets, frozen foods",
+          "Fasting day: Skip feeding once weekly (healthy for digestion)",
+          "Adjust feeding based on fish activity and appetite"
+        ]
+      },
+      "playTime": {
+        "duration": "Environmental enrichment",
+        "activities": [
+          "Varied tank decorations and hiding places",
+          "Live plants for natural environment",
+          "Tank mates for social species",
+          "Bubble makers and water movement",
+          "Feeding puzzles (floating food rings)",
+          "Observing and interacting during feeding"
+        ]
+      },
+      "happinessTips": [
+        "Appropriate tank size for species (larger is better)",
+        "Proper water parameters (temperature, pH, filtration)",
+        "Adequate filtration and water movement",
+        "Hiding places and varied decorations",
+        "Compatible tank mates (research before adding)",
+        "Regular water changes to maintain quality",
+        "Proper lighting schedule (8-12 hours daily)",
+        "Quiet location away from excessive noise and vibration"
+      ]
+    },
+    "image": "images/fish.jpg"
+  }
+]
