@@ -1,3 +1,4 @@
+
 # 🐾 Pawpal - Pet Care & Rescue Community Platform
 
 Pawpal is a comprehensive web application designed to connect pet owners, animal lovers, and service providers. It serves as a centralized hub for reporting lost or injured animals (SOS), finding veterinary clinics, and accessing essential pet care information.
